@@ -44,7 +44,7 @@
 
 
 (define (zoo n)
-  (let* ([base (overlay/align "middle" "bottom" (welcome n) (rectangle (* (* 2 n) n) (* (* 1.25 n) n) "solid" "khaki"))]
+  (let* ([base (overlay/align "middle" "bottom" (welcome n) (rectangle (* 40 n) (* 25 n) "solid" "khaki"))]
          [withgiraffe (overlay/align/offset "right" "bottom" (giraffe-plot n) 0 n base)]
          [withpanda (overlay/align/offset "left" "bottom" (panda-plot n) (- 0 n) n withgiraffe)]
          [withfish (overlay/align/offset "right" "top" (swordfish-plot n) n 0 withpanda)]
