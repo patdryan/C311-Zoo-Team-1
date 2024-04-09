@@ -7,8 +7,11 @@ Author: Kayla Kerchove
 extra-decor.rkt contains code for trees, bushes, bamboo, and rocks
 Author: Kayla Kerckhove
 
-PandaGroupProject contains a panda
+panda.rkt contains a panda
 Author: Eleodora Piedra
 
-Swordfish contains a swordfish
+fish.rkt contains a swordfish
 Author: Patrick Ryan
+
+lion.rkt: contains a lion
+Author: Katelynn Salisbury
