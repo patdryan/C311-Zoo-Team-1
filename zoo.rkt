@@ -4,6 +4,7 @@
 (require "panda.rkt")
 (require "fish.rkt")
 (require "extra-decor.rkt")
+(require "tiger.rkt")
 
 (define (welcome n)
   (define message (text/font "  WELCOME\nTO OUR ZOO!" (* 1 n) "black"
@@ -19,12 +20,13 @@
   (overlay giraffes (overlay/align "left" "top" (draw-tree n) (overlay/align/offset "right" "middle" (draw-tree (* 1.25 n)) 0 n plot))))
   
 
-(define (lion-plot n)
+(define (tiger-plot n)
   (define outline (ellipse (* 16.5 n) (* 10.5 n) "solid" "dark green"))
   (define inside (ellipse (* 16 n) (* 10 n) "solid" "medium green"))
   (define plot (rotate 340 (overlay inside outline)))
-  (overlay/align/offset "left" "middle" (rock n) (* -2 n) 0 (overlay/align/offset "right" "top" (draw-bush (* .75 n)) (* 6 n) 0
-                                                                                  (overlay/align/offset "right" "bottom" (draw-bush (* .6 n)) (* 2 n) n plot))))
+  (define tigers (above (tiger (/ n (* 4.5 n))) (overlay/offset (tiger (/ n (* 4 n))) (* 5 n) ( * 1.5 n) (tiger (/ n (* 5 n))))))
+  (overlay tigers (overlay/align/offset "left" "middle" (rock n) (* -2 n) 0 (overlay/align/offset "right" "top" (draw-bush (* .75 n)) (* 6 n) 0
+                                                                                  (overlay/align/offset "right" "bottom" (draw-bush (* .6 n)) (* 2 n) n plot)))))
 
 (define (panda-plot n)
   (define outline (ellipse (* 10.5 n) (* 13.5 n) "solid" "dark green"))
@@ -48,9 +50,10 @@
          [withgiraffe (overlay/align/offset "right" "bottom" (giraffe-plot n) 0 n base)]
          [withpanda (overlay/align/offset "left" "bottom" (panda-plot n) (- 0 n) n withgiraffe)]
          [withfish (overlay/align/offset "right" "top" (swordfish-plot n) n 0 withpanda)]
-         [withlion (overlay/align/offset "left" "top" (lion-plot n) (* -3 n) 0 withfish)]
+         [withtiger (overlay/align/offset "left" "top" (tiger-plot n) (* -3 n) 0 withfish)]
          )
-    withlion))
+    withtiger))
+
 
 (zoo 20)
 
